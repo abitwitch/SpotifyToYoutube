@@ -12,9 +12,9 @@ firstResultButton.click()
 
 await sleep(200);
 
-songMenu=document.querySelector("#items > ytmusic-menu-navigation-item-renderer").childNodes
+songMenu=document.querySelector("#items").childNodes
 for (let i = 0; i < songMenu.length; i++) {
-  menuItem=songMenu[i].querySelector("a yt-formatted-string").innerText;
+  menuItem=songMenu[i].querySelector("a").innerText;
   if (menuItem=="Add To Playlist") {
     songMenu[i].querySelector("a").click()
   }
