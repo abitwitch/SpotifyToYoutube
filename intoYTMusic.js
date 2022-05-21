@@ -14,10 +14,12 @@ await sleep(200);
 
 songMenu=document.querySelector("#items").childNodes
 for (let i = 0; i < songMenu.length; i++) {
-  menuItem=songMenu[i].querySelector("a").innerText;
-  if (menuItem=="Add To Playlist") {
-    songMenu[i].querySelector("a").click()
-  }
+  try{
+    menuItem=songMenu[i].querySelector("a").innerText;
+    if (menuItem=="Add to playlist") {
+      songMenu[i].querySelector("a").click()
+    }
+  } catch {}
 }
 
 await sleep(200);
