@@ -6,11 +6,11 @@ async function sleep(ms) {
 }
 
 //Def add to playlist function
-function addToPlaylist(fullSongTitle, targetPlaylist) {
+async function addToPlaylist(fullSongTitle, targetPlaylist) {
     //Load URL
     window.location.href = 'https://music.youtube.com/search?q='+encodeURIComponent(fullSongTitle);
     
-    window.addEventListener('load', function () {
+    window.addEventListener('load', async function () {
 
         await sleep(200);
 
@@ -49,7 +49,5 @@ function addToPlaylist(fullSongTitle, targetPlaylist) {
 
 for (let i = 0; i < playlist.length; i++) {
     console.log(playlist[i]);
-    addToPlaylist(playlist[i][0],playlist[i][1]);
+    await addToPlaylist(playlist[i][0],playlist[i][1]);
 }
-
-
