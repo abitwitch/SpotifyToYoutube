@@ -1,0 +1,16 @@
+//Go to https://open.spotify.com/embed/playlist/{playlistid}
+
+playlist=[]
+
+playlistName=document.querySelector("#main > div > div > div.ai.au.ah.av > div.ah.bj.bk > div > div.ah.bl.b6.bm > a > div.bu.bs.bt.bv.bw.bx.by > span").innerText;
+
+elements=document.querySelector("#main > div > div > div.ah.de.df.dg > div > table > tbody").children;
+
+for (let i = 0; i < elements.length; i++){
+    title=elements[i].querySelector("td > div > div:nth-child(1)").innerText;
+    artist=elements[i].querySelector("td > div > div:nth-child(2)").innerText;
+    fullSongTitle=title+" by "+artist;
+    playlist.push([fullSongTitle,playlistName]);
+}
+
+console.log(JSON.stringify(playlist));
