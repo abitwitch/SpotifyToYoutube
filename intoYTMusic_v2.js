@@ -1,5 +1,5 @@
 
-playlist=[["personal by stars","Test"],["intro by the xx","Test"],["my girl by the tempations","Test"]]
+playlist=[["Everybody Wants To Rule The World by Tears For Fears","DandD"],["Everybody Wants to Rule the World by Twinkle Twinkle Little Rock Star","DandD"],["Crystal Mountain by Nitelight","DandD"]]
 position=0
 
 //Def sleep function
@@ -22,8 +22,8 @@ async function addToPlaylist() {
     await sleep(200);
 
     //Click on menu for First Result
-    firstResultButton=document.querySelector("#contents > ytmusic-responsive-list-item-renderer > ytmusic-menu-renderer > tp-yt-paper-icon-button")
-    firstResultButton.click()
+    firstResultButton=document.querySelector("#search-page > ytmusic-tabbed-search-results-renderer > div.content.style-scope.ytmusic-tabbed-search-results-renderer > ytmusic-section-list-renderer > div:nth-child(2) > ytmusic-shelf-renderer #contents > ytmusic-responsive-list-item-renderer > ytmusic-menu-renderer > tp-yt-paper-icon-button");
+    firstResultButton.click();
 
     await sleep(200);
 
