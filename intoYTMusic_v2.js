@@ -21,11 +21,19 @@ async function addToPlaylist() {
     await waitForLoaded();
     await sleep(200);
 
-    //Click on menu for First Result
+    //Click on menu for First Song Result
+    
+    elems=document.querySelector("#search-page > ytmusic-tabbed-search-results-renderer > div.content.style-scope.ytmusic-tabbed-search-results-renderer > ytmusic-section-list-renderer > div:nth-child(2)").children;
+    for (let i = 0; i < elems.length; i++) {
+        if(elems[i].querySelector("h2") && elems[i].querySelector("h2").innerText=="Songs"){
+            firstResultButton=elems[i].querySelector("#contents ytmusic-responsive-list-item-renderer > ytmusic-menu-renderer > tp-yt-paper-icon-button");
+        }
+    }
+    
     firstResultButton=document.querySelector("#search-page > ytmusic-tabbed-search-results-renderer > div.content.style-scope.ytmusic-tabbed-search-results-renderer > ytmusic-section-list-renderer > div:nth-child(2) > ytmusic-shelf-renderer #contents > ytmusic-responsive-list-item-renderer > ytmusic-menu-renderer > tp-yt-paper-icon-button");
     firstResultButton.click();
 
-    await sleep(200);
+    await sleep(400);
 
     //Find and click "Add to playlist" button
     songMenu=document.querySelector("#items").childNodes
@@ -38,7 +46,7 @@ async function addToPlaylist() {
       } catch {}
     }
 
-    await sleep(200);
+    await sleep(400);
 
     //Find and click target playlist
     playlists=document.querySelector("#playlists").childNodes;
