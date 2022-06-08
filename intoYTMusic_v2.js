@@ -21,6 +21,8 @@ async function addToPlaylist() {
     await sleep(200);
 
     //Click on menu for First Song Result
+    //TODO just if the "Top result" is a song
+    //  if Y, add it. Else, add first song result
     
     firstResultButton=null;
     
