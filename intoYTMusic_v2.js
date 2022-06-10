@@ -21,15 +21,20 @@ async function addToPlaylist() {
     await sleep(200);
 
     //Click on menu for First Song Result
-    //TODO just if the "Top result" is a song
-    //  if Y, add it. Else, add first song result
     
     firstResultButton=null;
     
     elems=document.querySelector("#search-page > ytmusic-tabbed-search-results-renderer > div.content.style-scope.ytmusic-tabbed-search-results-renderer > ytmusic-section-list-renderer > div:nth-child(2)").children;
     for (let i = 0; i < elems.length; i++) {
-        if(elems[i].querySelector("h2") && elems[i].querySelector("h2").innerText=="Songs"){
+        if (elems[i].querySelector("h2") && elems[i].querySelector("h2").innerText=="Top result"){
+            if (elems[i].querySelector("#contents > ytmusic-responsive-list-item-renderer > div.flex-columns.style-scope.ytmusic-responsive-list-item-renderer > div.secondary-flex-columns.style-scope.ytmusic-responsive-list-item-renderer > yt-formatted-string > span:nth-child(1)").innerText=="Song"){
+                firstResultButton=elems[i].querySelector("#contents ytmusic-responsive-list-item-renderer > ytmusic-menu-renderer > tp-yt-paper-icon-button");
+                break;
+            }            
+        }
+        else if(elems[i].querySelector("h2") && elems[i].querySelector("h2").innerText=="Songs"){
             firstResultButton=elems[i].querySelector("#contents ytmusic-responsive-list-item-renderer > ytmusic-menu-renderer > tp-yt-paper-icon-button");
+            break;
         }
     }
     
