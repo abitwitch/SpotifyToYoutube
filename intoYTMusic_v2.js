@@ -43,7 +43,7 @@ async function addToPlaylist() {
     await sleep(400);
 
     //Find and click "Add to playlist" button
-    songMenu=document.querySelector("#items").childNodes
+    songMenu=document.querySelector("tp-yt-paper-listbox#items").childNodes
     for (let i = 0; i < songMenu.length; i++) {
       try{
         menuItem=songMenu[i].querySelector("a").innerText;
